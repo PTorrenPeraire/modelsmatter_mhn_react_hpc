@@ -328,7 +328,7 @@ def load_dataset_from_csv(
     # remove rows with reaction_smarts with less than 3 occurences
     if (
         filter_templates is not None
-    ):  # Added by Paula: filter by number of templates (TODO: THIS IS VERY UGLY - CLEAN UP)
+    ):  # Added by Paula: filter by number of templates
         df["frequency"] = df["reaction_smarts"]
         df[df[split_col] != "train"]["frequency"] = np.nan
         df = df[df["frequency"].map(df["frequency"].value_counts()) > 2]
